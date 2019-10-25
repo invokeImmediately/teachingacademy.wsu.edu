@@ -1,0 +1,62 @@
+// TODO: Add file header comment.
+
+// TODO: Add table of contents to inline documentation here.
+
+// TODO: Add inline documentation section for site intro components.
+
+.site-intro {
+	position: relative;
+
+	@media screen {
+		height: 480px;
+	}
+
+	@media print {
+		background-image: none !important;
+		height: auto;
+	}
+}
+
+.site-intro__content {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	.transform(~"translateY(-50%)");
+}
+
+.site-intro__summary {
+	color: white;
+	font-weight: bold;
+	line-height: 1.75em;
+    text-shadow: 1px 1px black, 0 0 2px black, 0 0 3px black, 0 0 3px black, 0 0 4px white;
+
+	* + & {
+		margin-top: 0.5em;
+	}
+
+	a {
+		color: #fab0be;
+		border-bottom: 2px ridge #fab0be;
+
+		&:hover {
+			.getRgbaStr(@hex-crimson, 0.5);
+			color: #fab0be;
+			border-bottom: 5px ridge #fab0be;
+			text-shadow: 1px 1px black, 0 0 3px @rgba;
+		}
+	}
+}
+
+.site-intro__title {
+	color: white;
+	letter-spacing: 0;
+	max-width: 40ch;
+	text-shadow: 1px 1px 0 black, 0 0 4px black, 0 0 4px black;
+	text-transform: none;
+}
+
+// TODO: Add inline documentation section for paragraph elements.
+
+p {
+	max-width: 80ch;
+}
