@@ -1,4 +1,4 @@
-(function ($) {
+( function ( $ ) {
 	'use strict';
 	
 	
@@ -23,11 +23,9 @@
 		var table = undefined;
  
 		if ( $directory && $directory.length && $filter && $filter.length ) {
-			console.log( 'Directory & filter found.' );
 			table = $directory.DataTable();
 			$filter.change( function() {
 				var newFiltVal = $filter.val();
-				console.log( 'Filter value changed; now set to ' + $filter.val() );
 				table.search( '' ).columns().search( '' ).draw();
 				if ( newFiltVal != '' ) {
 					table.column( params.targetCol ).search( newFiltVal ).draw();
