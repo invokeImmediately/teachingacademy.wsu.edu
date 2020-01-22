@@ -1,15 +1,57 @@
+/*!*************************************************************************************************
+ * gulpfile.js
+ * -------------------------------------------------------------------------------------------------
+ * SUMMARY: Gulp automation task definition file for setting up tasks that build CSS and JS
+ * files for use on the WSUWP website of the WSU President's Teaching Academy.
+ *
+ * DESCRIPTION: This gulp automation task definition file is designed for use on the following
+ *   project that is maintained on GitHub:
+ *   https://github.com/invokeImmediately/teachingacademy.wsu.edu
+ *
+ * AUTHOR: Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
+ *
+ * LICENSE: ISC - Copyright (c) 2020 Daniel C. Rieck.
+ *
+ *   Permission to use, copy, modify, and/or distribute this software for any purpose with or
+ *   without fee is hereby granted, provided that the above copyright notice and this permission
+ *   notice appear in all copies.
+ *
+ *   THE SOFTWARE IS PROVIDED "AS IS" AND DANIEL C. RIECK DISCLAIMS ALL WARRANTIES WITH REGARD TO
+ *   THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT
+ *   SHALL DANIEL C. RIECK BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR
+ *   ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF
+ *   CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ *   PERFORMANCE OF THIS SOFTWARE.
+ **************************************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// TABLE OF CONTENTS
+// -----------------
+// §1: Gulp task dependencies..................................................................46
+// §2: Specificiation of build settings .......................................................51
+//   §2.1: getCssBuildSettings()...............................................................54
+//   §2.2: getJsBuildSettings()...............................................................107
+// §3: Entry point: Set up of build taks......................................................139
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+( function() {
+
 'use strict';
 
 /* -------------------------------------------------------------------------------------------------
 ** Variable Declarations
 */
 
-// Gulp task dependencies
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// §1: Gulp task dependencies
+
 var gulpBuilder = require( './WSU-UE---JS/gulpBuilder.js' );
 
-/* -------------------------------------------------------------------------------------------------
-** Function declarations
-*/
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// §2: Specificiation of build settings 
+
+////////
+// §2.1: getCssBuildSettings()
 
 /**
  * Get the settings for a gulp-mediated custom CSS build from Less source files.
@@ -20,27 +62,49 @@ function getCssBuildSettings() {
 	var commentRemovalNeedle = /^(?:[ \t]*)?\/\*[^!].*$\n(?:^\*\*?[^/].*$\n)*\*\*?\/\n\n?/gm;
 	var dependenciesPath = './WSU-UE---CSS/';
 	var destFolder = './CSS/';
-	var fontImportStr = '@import url(\'https://fonts.googleapis.com/css?family=Roboto+Mono:400,700|\
-Roboto+Condensed:400,700|Roboto+Slab|PT+Serif\');\r\n';
+	var fontImportStr = '@import url(\'https://fonts.googleapis.com/css?family=Open+Sans:300,' +
+		'300i,400,400i,700,700i|Roboto+Condensed:400,400i,700,700i|PT+Serif:400,400i,700,700i|' +
+		'Roboto+Mono:400,400i,700,700i&display=swap\');\r\n';
 	var insertingMediaQuerySectionHeader = {
 			'before': /^@media/,
-			'lineBefore': '/*! ╔═══════════════════════════════════════════════════════════════════\
-════════════════════════════════════════════════════╗\r\n*   ║ MEDIA QUERIES ######################\
-################################################################################# ║\r\n*   ╚═══════\
-═══════════════════════════════════════════════════════════════════════════════════════════════════\
-═════════════╝\r\n*/',
+			'lineBefore': '/*! ==================================================================' +
+				'==============================\r\n*** Media queries section\r\n*** =============' +
+				'================================================================================' +
+				'===\r\n***   SUMMARY: Media queries built from precompiled CSS written in the Le' +
+				'ss language extension of\r\n***    CSS. Queries in this section are a combinatio' +
+				'n of those designed for use on DAESA websites***\r\n    and those intended speci' +
+				'fically for use on the WSU President\'s Teaching Academy website.\r\n***\r\n*** ' +
+				'  DESCRIPTION: Fully documented, precompiled source code from which this section' +
+				' of the custom\r\n***    stylesheet was built is developed and maintained on the' +
+				' following two GitHub projects:\r\n***    https://github.com/invokeImmediately/W' +
+				'SU-UE---CSS/\r\n***    https://github.com/invokeImmediately/teachingacademy.wsu.' +
+				'edu/\r\n***   AUTHOR: Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/in' +
+				'vokeImmediately)\r\n***\r\n***   LICENSE: ISC - Copyright (c) 2020 Daniel C. Rie' +
+				'ck.\r\n***\r\n***     Permission to use, copy, modify, and/or distribute this so' +
+				'ftware for any purpose with or\r\n***     without fee is hereby granted, provide' +
+				'd that the above copyright notice and this permission\r\n***     notice appear i' +
+				'n all copies.\r\n***\r\n***     THE SOFTWARE IS PROVIDED "AS IS" AND DANIEL C. R' +
+				'IECK DISCLAIMS ALL WARRANTIES WITH REGARD TO\r\n***     THIS SOFTWARE INCLUDING ' +
+				'ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT\r\n***     SH' +
+				'ALL DANIEL C. RIECK BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIA' +
+				'L DAMAGES OR\r\n***     ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA ' +
+				'OR PROFITS, WHETHER IN AN ACTION OF\r\n***     CONTRACT, NEGLIGENCE OR OTHER TOR' +
+				'TIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE\r\n***     OR PERFORM' +
+				'ANCE OF THIS SOFTWARE.\r\n*** ==================================================' +
+				'==============================================\r\n**/',
 			'stopAfterFirstMatch': true
 		};
 	var minCssFileExtension = '.min.css';
-	var minCssFileHeaderStr = '/*! Built with the Less CSS preprocessor [http://lesscss.org/]. Plea\
-se see [https://github.com/invokeImmediately/teachingacademy.wsu.edu] for a repository of source co\
-de. */\r\n';
+	var minCssFileHeaderStr = '';
  	var sourceFile = './CSS/ta-custom.less';
 
 	return new gulpBuilder.CssBuildSettings(commentRemovalNeedle, dependenciesPath,
  		destFolder, fontImportStr, insertingMediaQuerySectionHeader, minCssFileExtension,
  		minCssFileHeaderStr, sourceFile);
 }
+
+////////
+// §2.2: getJsBuildSettings()
 
 /**
  * Get the settings for a gulp-mediated custom JS build.
@@ -71,9 +135,10 @@ function getJsBuildSettings() {
 	};
 }
 
-/* -------------------------------------------------------------------------------------------------
-** Main execution sequence
-*/
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// §3: Entry point: Set up of build taks
 
 gulpBuilder.setUpCssBuildTask( getCssBuildSettings() );
 gulpBuilder.setUpJsBuildTask( getJsBuildSettings() );
+
+} )();
