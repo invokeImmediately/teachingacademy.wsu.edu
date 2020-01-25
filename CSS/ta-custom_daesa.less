@@ -1,105 +1,182 @@
-// TODO: Add file header comment.
+// TODO: Add file header, table of contents to inline documentation here.
 
-// TODO: Add table of contents to inline documentation here.
+/*! ================================================================================================
+*** CUSTOM STYLE SHEET for the WSU President's Teaching Academy
+*** ================================================================================================
+*** SUMMARY: CSS compiled from Less language extension of CSS written explicitly for use on the
+***   Teaching Academy website.
+***
+*** DESCRIPTION: Fully documented, precompiled source code from which this section of the custom
+***   stylesheet was built is developed and maintained on the following GitHub project:
+***   https://github.com/invokeImmediately/teachingacademy.wsu.edu/
+***
+*** AUTHOR: Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
+***
+*** LICENSE: ISC - Copyright (c) 2020 Daniel C. Rieck.
+***
+***   Permission to use, copy, modify, and/or distribute this software for any purpose with or
+***   without fee is hereby granted, provided that the above copyright notice and this permission
+***   notice appear in all copies.
+***
+***   THE SOFTWARE IS PROVIDED "AS IS" AND DANIEL RIECK DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS
+***   SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL
+***   DANIEL RIECK BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY
+***   DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF
+***   CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+***   PERFORMANCE OF THIS SOFTWARE.
+*** ================================================================================================
+**/
 
-// TODO: Add inline documentation section for provost office style overrides.
-
-.article-summary {
-	line-height: 1.5em;
-}
-
-.column ul li,
-.column ol li {
-	line-height: 1.5em;
-
-	& + li {
-		margin-top: 0.5em;
-	}
-}
-
-ol > li {
-	line-height: 1.5em;
-}
-
-p {
-	line-height: 1.5em;
-}
-
-.column .footer a {
-	border-color: white;
-
-	&:hover {
-		border-color: #ca1237;
-	}
-}
+@ta-styling__
 
 // TODO: Add inline documentation section for site intro components.
+@ta-styling__site-intro: {
+	.site-intro {
+		position: relative;
 
-.site-intro {
-	position: relative;
+		@media screen {
+			height: 480px;
+		}
 
-	@media screen {
-		height: 480px;
-	}
-
-	@media print {
-		background-image: none !important;
-		height: auto;
-	}
-}
-
-.site-intro__content {
-	position: absolute;
-	left: 0;
-	top: 50%;
-	.transform(~"translateY(-50%)");
-}
-
-.site-intro__summary {
-	color: white;
-	font-weight: bold;
-	line-height: 1.75em;
-    text-shadow: 1px 1px black, 0 0 2px black, 0 0 3px black, 0 0 3px black, 0 0 4px white;
-
-	* + & {
-		margin-top: 0.5em;
-	}
-
-	a {
-		color: #fab0be;
-		border-bottom: 2px ridge #fab0be;
-
-		&:hover {
-			.getRgbaStr(@hex-crimson, 0.5);
-			color: #fab0be;
-			border-bottom: 5px ridge #fab0be;
-			text-shadow: 1px 1px black, 0 0 3px @rgba;
+		@media print {
+			background-image: none !important;
+			height: auto;
 		}
 	}
-}
 
-.site-intro__title {
-	color: white;
-	letter-spacing: 0;
-	max-width: 40ch;
-	text-shadow: 1px 1px 0 black, 0 0 4px black, 0 0 4px black;
-	text-transform: none;
-}
+	.site-intro__content {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		.transform(~"translateY(-50%)");
+	}
+
+	.site-intro__summary {
+		color: white;
+		font-weight: bold;
+		line-height: 1.75em;
+	    text-shadow: 1px 1px black, 0 0 2px black, 0 0 3px black, 0 0 3px black, 0 0 4px white;
+
+		* + & {
+			margin-top: 0.5em;
+		}
+
+		a {
+			color: #fab0be;
+			border-bottom: 2px ridge #fab0be;
+
+			&:hover {
+				.getRgbaStr(@hex-crimson, 0.5);
+				color: #fab0be;
+				border-bottom: 5px ridge #fab0be;
+				text-shadow: 1px 1px black, 0 0 3px @rgba;
+			}
+		}
+	}
+
+	.site-intro__title {
+		color: white;
+		letter-spacing: 0;
+		max-width: 40ch;
+		text-shadow: 1px 1px 0 black, 0 0 4px black, 0 0 4px black;
+		text-transform: none;
+	}
+};
+@ta-styling__site-intro();
 
 // TODO: Add inline documentation section for readability enhancements.
 
-p,
-ol,
-ul {
-	max-width: 80ch;
-}
+// #wpadminbar ul {
+// 	max-width: none;
+// }
 
-#wpadminbar ul {
-	max-width: none;
-}
+// TODO: Add inline documentation section for main headers.
+// TODO: Move to WSU-UE---CSS and implement as a switchable ruleset.
+@ta-styling__main-header: {
+	.main-header {
+		background: rgb(130,12,35,1);
+		background: -moz-linear-gradient(left,rgba(130,12,35,1) 0%,rgba(166,15,45,1) 100%);
+		background: -webkit-linear-gradient(left,rgba(130,12,35,1) 0%,rgba(166,15,45,1) 100%);
+		background: linear-gradient(to right,rgba(130,12,35,1) 0%,rgba(166,15,45,1) 100%);
+		color: @hex-white !important;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#820c23',endColorstr='#a60f2d',GradientType=1);
+		padding: 1rem 0;
+		position: relative;
 
-// TODO: Add inline documentation section for page headers.
+		.header-group:not(.unset) {
+			font-size: 13px;
+			line-height: 1em;
+			padding: .7em 2rem;
+			position: relative;
+		}
 
-.header {
-	background-color: @hex-bright-gray;
-}
+		.sub-header,
+		.sup-header {
+			display: inline-block;
+
+			@media screen and (max-width: @spine-threshold) {
+				display: block;
+			}
+		}
+
+		.sub-header,
+		.sup-header,
+		.sub-header-default,
+		.sup-header-default {
+			font-size: inherit !important;
+		}
+
+		.sub-header-default {
+			border-left: 1px solid #fff;
+			font-weight: 300;
+			margin-left: 1em;
+			padding-left: 1.25em;
+			color: #fff;
+
+			@media screen and (max-width: @spine-threshold) {
+				border-left: 0;
+				margin-left: 0;
+				padding-left: 0;
+			}
+		}
+
+		.sub-header-default,
+		.sup-header-default {
+			text-transform: uppercase;
+			width: auto;
+		}
+
+		.sup-header-default {
+			font-weight: bold;
+		}
+	}
+
+	.main-header {
+		.header-group {
+			padding-top: 1em !important;
+			position: relative;
+		}
+
+		sub:not(.unset),
+		sup:not(.unset) {
+			color: @hex-white !important;
+		}
+	}
+};
+@ta-styling__main-header();
+
+// TODO: Add inline documentation section.
+.use-sectional-article-headers();
+
+// TODO: Add inline documentation section for headings.
+@ta-styling__addl-for-headings: {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		.tt--uppercase;
+	}
+};
+@ta-styling__addl-for-headings();
