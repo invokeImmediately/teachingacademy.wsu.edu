@@ -27,7 +27,26 @@
 *** ================================================================================================
 **/
 
-@ta-styling__
+@ta-styling__main-backgrounds: {
+	body.home:not(.has-background-image) #jacket, #jacket {
+		background: #e5e5e5 url(https://s3.wp.wsu.edu/uploads/sites/1368/2017/03/bg-jacket-4.jpg) no-repeat right top;
+		background-attachment: fixed;
+	}
+
+	#binder {
+		background-color: #fff;
+		border-right: none;
+		-webkit-box-shadow: 0 0 50px 5px rgba(0,0,0,0.2);
+		-moz-box-shadow: 0 0 50px 5px rgba(0,0,0,0.2);
+		box-shadow: 0 0 50px 5px rgba(0,0,0,0.2);
+	}
+
+	#spine #glue:before {
+		border-right: 1px solid #e5e5e5;
+		background: #fff url(https://s3.wp.wsu.edu/uploads/sites/1368/2017/02/bg-spine.png) no-repeat left bottom;
+		background-attachment: fixed;
+	}
+};
 
 // TODO: Add inline documentation section for site intro components.
 @ta-styling__site-intro: {
