@@ -6473,12 +6473,36 @@ div.auto-scroller ul li {
 ***   PERFORMANCE OF THIS SOFTWARE.
 *** ================================================================================================
 **/
+body.home:not(.has-background-image) #jacket,
+#jacket {
+  background: #e5e5e5 url(https://s3.wp.wsu.edu/uploads/sites/1368/2017/03/bg-jacket-4.jpg) no-repeat right top;
+  background-attachment: fixed;
+}
+#binder {
+  background-color: #fff;
+  border-right: none;
+  -webkit-box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.2);
+}
+#spine #glue:before {
+  border-right: 1px solid #e5e5e5;
+  background: #fff url(https://s3.wp.wsu.edu/uploads/sites/1368/2017/02/bg-spine.png) no-repeat left bottom;
+  background-attachment: fixed;
+}
 .site-intro {
+  background: #eff0f1 url(https://s3.wp.wsu.edu/uploads/sites/56/2020/02/clif-stratton_during-roots-lecture_04_1188x650.jpg) no-repeat center;
+  background-size: cover;
   position: relative;
 }
 @media screen {
   .site-intro {
     height: 480px;
+  }
+}
+@media screen and (max-width: 693px) {
+  .site-intro {
+    background-position: 67% 50%;
   }
 }
 @media print {
@@ -6487,17 +6511,30 @@ div.auto-scroller ul li {
     height: auto;
   }
 }
-.site-intro__content {
-  position: absolute;
+.site-intro .site-intro__content {
+  background-color: rgba(0, 0, 0, 0.8);
   left: 0;
-  top: 50%;
+  padding-bottom: 0.8rem;
+  padding-top: 0.8rem;
+  position: absolute;
+  top: 60%;
   transform: translateY(-50%);
 }
+@media print {
+  .site-intro .site-intro__content {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}
+@media screen and (max-width: 693px) {
+  .site-intro .site-intro__content {
+    top: 100%;
+    transform: translateY(-100%);
+  }
+}
 .site-intro__summary {
-  color: white;
   font-weight: bold;
   line-height: 1.75em;
-  text-shadow: 1px 1px black, 0 0 2px black, 0 0 3px black, 0 0 3px black, 0 0 4px white;
+  text-shadow: 1px 1px black, 0 0 2px black, 0 0 3px black, 0 0 3px black;
 }
 * + .site-intro__summary {
   margin-top: 0.5em;
@@ -6512,11 +6549,21 @@ div.auto-scroller ul li {
   text-shadow: 1px 1px black, 0 0 3px rgba(152, 30, 50, 0.5);
 }
 .site-intro__title {
-  color: white;
   letter-spacing: 0;
   max-width: 40ch;
   text-shadow: 1px 1px 0 black, 0 0 4px black, 0 0 4px black;
   text-transform: none;
+}
+.site-intro__summary,
+.site-intro__title {
+  color: white;
+}
+@media print {
+  .site-intro__summary,
+  .site-intro__title {
+    color: black;
+    text-shadow: none;
+  }
 }
 .main-header {
   background: #820c23;

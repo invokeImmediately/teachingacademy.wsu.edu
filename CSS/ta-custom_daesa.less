@@ -27,6 +27,7 @@
 *** ================================================================================================
 **/
 
+// TODO: Add inline documentation section for specification of main backgrounds.
 @ta-styling__main-backgrounds: {
 	body.home:not(.has-background-image) #jacket, #jacket {
 		background: #e5e5e5 url(https://s3.wp.wsu.edu/uploads/sites/1368/2017/03/bg-jacket-4.jpg) no-repeat right top;
@@ -47,34 +48,54 @@
 		background-attachment: fixed;
 	}
 };
+@ta-styling__main-backgrounds();
 
 // TODO: Add inline documentation section for site intro components.
 @ta-styling__site-intro: {
 	.site-intro {
+		background: #eff0f1 url(https://s3.wp.wsu.edu/uploads/sites/56/2020/02/clif-stratton_during-roots-lecture_04_1188x650.jpg) no-repeat center;
+		background-size: cover;
 		position: relative;
 
 		@media screen {
 			height: 480px;
+
+			@media ( max-width: @column-floating-threshold) {
+				background-position: 67% 50%;
+			}
 		}
 
 		@media print {
 			background-image: none !important;
 			height: auto;
 		}
-	}
 
-	.site-intro__content {
-		position: absolute;
-		left: 0;
-		top: 50%;
-		.transform(~"translateY(-50%)");
+		.site-intro__content {
+			background-color: rgba( 0, 0, 0, 0.8 );
+			left: 0;
+			padding-bottom: 0.8rem;
+			padding-top: 0.8rem;
+			position: absolute;
+			top: 60%;
+			.transform(~"translateY(-50%)");
+
+			@media print {
+				background-color: rgba( 255, 255, 255, 0.8 );
+			}
+
+			@media screen {
+				@media ( max-width: @column-floating-threshold) {
+					top: 100%;
+					.transform(~"translateY(-100%)");
+				}
+			}
+		}
 	}
 
 	.site-intro__summary {
-		color: white;
 		font-weight: bold;
 		line-height: 1.75em;
-	    text-shadow: 1px 1px black, 0 0 2px black, 0 0 3px black, 0 0 3px black, 0 0 4px white;
+	    text-shadow: 1px 1px black, 0 0 2px black, 0 0 3px black, 0 0 3px black;
 
 		* + & {
 			margin-top: 0.5em;
@@ -94,11 +115,20 @@
 	}
 
 	.site-intro__title {
-		color: white;
 		letter-spacing: 0;
 		max-width: 40ch;
 		text-shadow: 1px 1px 0 black, 0 0 4px black, 0 0 4px black;
 		text-transform: none;
+	}
+
+	.site-intro__summary,
+	.site-intro__title {
+		color: white;
+
+		@media print {
+			color: black;
+			text-shadow: none;
+		}
 	}
 };
 @ta-styling__site-intro();
