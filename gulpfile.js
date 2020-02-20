@@ -66,34 +66,33 @@ function getCssBuildSettings() {
 		'300i,400,400i,600,600i,700,700i|Roboto+Condensed:400,400i,700,700i|PT+Serif:400,400i' +
 		',700,700i|Roboto+Mono:400,400i,700,700i&display=swap\');\r\n';
 	var insertingMediaQuerySectionHeader = {
-			'before': /^@media/,
-			'lineBefore': '/*! ==================================================================' +
-				'==============================\r\n*** Media queries section\r\n*** =============' +
-				'================================================================================' +
-				'===\r\n***   SUMMARY: Media queries built from precompiled CSS written in the Le' +
-				'ss language extension of\r\n***    CSS. Queries in this section are a combinatio' +
-				'n of those designed for use on DAESA websites***\r\n    and those intended speci' +
-				'fically for use on the WSU President\'s Teaching Academy website.\r\n***\r\n*** ' +
-				'  DESCRIPTION: Fully documented, precompiled source code from which this section' +
-				' of the custom\r\n***    stylesheet was built is developed and maintained on the' +
-				' following two GitHub projects:\r\n***    https://github.com/invokeImmediately/W' +
-				'SU-UE---CSS/\r\n***    https://github.com/invokeImmediately/teachingacademy.wsu.' +
-				'edu/\r\n***   AUTHOR: Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/in' +
-				'vokeImmediately)\r\n***\r\n***   LICENSE: ISC - Copyright (c) 2020 Daniel C. Rie' +
-				'ck.\r\n***\r\n***     Permission to use, copy, modify, and/or distribute this so' +
-				'ftware for any purpose with or\r\n***     without fee is hereby granted, provide' +
-				'd that the above copyright notice and this permission\r\n***     notice appear i' +
-				'n all copies.\r\n***\r\n***     THE SOFTWARE IS PROVIDED "AS IS" AND DANIEL C. R' +
-				'IECK DISCLAIMS ALL WARRANTIES WITH REGARD TO\r\n***     THIS SOFTWARE INCLUDING ' +
-				'ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT\r\n***     SH' +
-				'ALL DANIEL C. RIECK BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIA' +
-				'L DAMAGES OR\r\n***     ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA ' +
-				'OR PROFITS, WHETHER IN AN ACTION OF\r\n***     CONTRACT, NEGLIGENCE OR OTHER TOR' +
-				'TIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE\r\n***     OR PERFORM' +
-				'ANCE OF THIS SOFTWARE.\r\n*** ==================================================' +
-				'==============================================\r\n**/',
-			'stopAfterFirstMatch': true
-		};
+		'before': /^@media/,
+		'lineBefore': '/*! ======================================================================' +
+			'==========================\r\n*** Media queries section\r\n*** =====================' +
+			'===========================================================================\r\n*** S' +
+			'UMMARY: Media queries built from precompiled CSS written in the Less language extens' +
+			'ion of\r\n***   CSS. Queries in this section are a combination of those designed for' +
+			' use on all websites\r\n***   managed by WSU DAESA and those intended specifically f' +
+			'or use on the WSU President\'s Teaching\r\n***   Academy website.\r\n***\r\n*** DESC' +
+			'RIPTION: Fully documented, precompiled source code from which this section of the cu' +
+			'stom\r\n***   stylesheet was built is developed and maintained on the following two ' +
+			'GitHub projects:\r\n***     https://github.com/invokeImmediately/WSU-UE---CSS/\r\n**' +
+			'*     https://github.com/invokeImmediately/ucore.wsu.edu/\r\n***\r\n*** AUTHOR: Dani' +
+			'el Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)\r\n***\r\n***' +
+			' LICENSE: ISC - Copyright (c) 2020 Daniel C. Rieck.\r\n***\r\n***   Permission to us' +
+			'e, copy, modify, and/or distribute this software for any purpose with or\r\n***   wi' +
+			'thout fee is hereby granted, provided that the above copyright notice and this permi' +
+			'ssion\r\n***   notice appear in all copies.\r\n***\r\n***   THE SOFTWARE IS PROVIDED' +
+			' "AS IS" AND DANIEL C. RIECK DISCLAIMS ALL WARRANTIES WITH REGARD TO\r\n***   THIS S' +
+			'OFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT' +
+			'\r\n***   SHALL DANIEL C. RIECK BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONS' +
+			'EQUENTIAL DAMAGES OR\r\n***   ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DAT' +
+			'A OR PROFITS, WHETHER IN AN ACTION OF\r\n***   CONTRACT, NEGLIGENCE OR OTHER TORTIOU' +
+			'S ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE\r\n***   OR PERFORMANCE OF TH' +
+			'IS SOFTWARE.\r\n*** ================================================================' +
+			'================================\r\n**/',
+		'stopAfterFirstMatch': true
+	};
 	var minCssFileExtension = '.min.css';
 	var minCssFileHeaderStr = '';
  	var sourceFile = './CSS/ta-custom.less';
