@@ -40,6 +40,7 @@
 		initializeDirectoryFiltering( {
 			directorySel: '#tablepress-3_wrapper #tablepress-3',
 			filterSel: '#gform_wrapper_1 #input_1_1',
+			submitBtnSel: '#gform_submit_button_1',
 			targetCol: 3
 		} );
 	} );
