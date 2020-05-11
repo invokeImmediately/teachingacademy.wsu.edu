@@ -124,10 +124,10 @@ function getJsBuildSettings() {
 			'./WSU-UE---JS/jQuery.css-data.js',
 			'./WSU-UE---JS/jQuery.textResize.js',
 			'./WSU-UE---JS/jQuery.masonry-custom.js',
-			'./JS/ta-custom.js'
+			'./JS/ta-specific.js'
 		],
 		commentNeedle: /^(\/\*)(?!!)/g,
-		compiledJsFileName: 'ta-build.js',
+		compiledJsFileName: 'ta-custom.js',
 		destFolder: './JS/',
 		minJsFileExtension: '.min.js',
 		replaceCallback: gulpBuilder.fixFileHeaderComments
